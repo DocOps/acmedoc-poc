@@ -1,0 +1,7 @@
+url: 127.0.0.1/fab
+exclude:
+  - assets/
+  - theme/
+  - includes/
+  - snippets/
+  - site

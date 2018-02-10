@@ -1,2 +1,6 @@
 # This file contains global Asciidoctor attributes
-imagesdir: theme/images
+imagesdir: assets/images
+base_dir: :source
+safe: 0
+project_root_path_from_build: ..
+icons: font

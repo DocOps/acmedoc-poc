@@ -7,14 +7,111 @@
 - action: migrate
   source: theme
   target: build
-- action: render
+- action: parse
   data: _data/meta.yml
   builds:
-  - output: src/includes/built/company_info.adoc
-    template: _templates/liquid/init/init_company-info.asciidoc
-# Render your publication with Asciidoctor
-- action: render
-  source: build/index.adoc
-  data: _configs/asciidoctor.yml
+  - output: build/includes/built/company_info.adoc
+    template: _templates/liquid/company-info.asciidoc
+# tag::product-info[]
+- action: parse
+  data: _data/products.yml
   builds:
-  - output: build/output/docs.html
+    - output: build/includes/built/product-info.adoc
+      template: _templates/liquid/product-info.asciidoc
+# end::product-info[]
+# Generate glossary of terms source
+- action: parse
+  data: _data/terms.yml
+  builds:
+    - output: build/includes/built/terms.adoc
+      template: _templates/liquid/terms.asciidoc
+# Generate framework structure list/table
+- action: parse
+  data: _data/framework-structure.yml
+  builds:
+    - output: build/includes/built/framework-structure-table.adoc
+      template: _templates/liquid/terms-to-table.asciidoc
+    - output: build/includes/built/framework-structure-dlist.adoc
+      template: _templates/liquid/terms-to-dlist.asciidoc
+# Move migrated (and possibly preprocessed) theme files to common site root
+- action: migrate
+  source: build/theme
+  target: build/site # => build/site/theme
+- action: migrate
+  source: src/index.html
+  target: build/site # => build/site/theme
+# Begin Asciidoctor-driven render operations
+- action: render
+  data:
+      - _configs/asciidoctor.yml
+      - _data/meta.yml
+      - _data/portals.yml:common
+      - _data/portals.yml:portal-1
+  source: build/portal-index.adoc
+  builds:
+    # - output: build/docs/user-guide.pdf
+    #   attributes:
+    #     portal_term: Manual
+    #     doctype: book
+    #     pdf:
+    - backend: jekyll
+      properties:
+        files:
+          - _configs/jekyll-global.yml
+          - _configs/jekyll-portals-common.yml
+          - _configs/jekyll-portal-1.yml
+        arguments:
+          destination: build/site/basic
+      attributes:
+        portal_term: Guide
+- action: render
+  data:
+      - _configs/asciidoctor.yml
+      - _data/meta.yml
+      - _data/portals.yml:common
+      - _data/portals.yml:portal-2
+  source: build/portal-index.adoc
+  builds:
+    # - output: build/docs/user-guide.pdf
+    #   attributes:
+    #     portal_term: Manual
+    #     doctype: book
+    #     pdf:
+    - backend: jekyll
+      properties:
+        files:
+          - _configs/jekyll-global.yml
+          - _configs/jekyll-portals-common.yml
+          - _configs/jekyll-portal-2.yml
+        arguments:
+          destination: build/site/fab
+      attributes:
+        portal_term: Guide
+- action: render
+  data:
+      - _configs/asciidoctor.yml
+      - _data/meta.yml
+      - _data/portals.yml:common
+      - _data/portals.yml:portal-3
+  source: build/portal-index.adoc
+  builds:
+    # - output: build/docs/user-guide.pdf
+    #   attributes:
+    #     portal_term: Manual
+    #     doctype: book
+    #     pdf:
+    - backend: jekyll
+      properties:
+        files:
+          - _configs/jekyll-global.yml
+          - _configs/jekyll-portals-common.yml
+          - _configs/jekyll-portal-3.yml
+        arguments:
+          destination: build/site/dev
+      attributes:
+        portal_term: Guide
+- action: migrate
+  source: build/site
+  target: ../acmedoc-www
+  options:
+    inclusive: false
