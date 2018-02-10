@@ -1,0 +1,27 @@
+{% for p in data %}
+// tag::product-{{ p.slug }}[]
+== {{ p.name }}
+
+Here is some information about {{ p.name }}, drawn from the file `_data/products.yml` and displayed conditionally, depending on which products are assigned to your portal.
+
+The iterative parsing is carried out by LiquiDoc during preprocessing.
+
+.From `_configs/build-docs.yml`
+[source,yaml]
+----
+include::../_configs/build-docs.yml[tags="product-info"]
+----
+
+=== Upstream Dependency Support
+
+{{ p.name }} supports the following upstream dependencies.
+
+[cols="2s,1",width=60]
+|===
+{% for d in p.supported %}
+| {{ d.dependency }}
+| {{ d.version_oldest }}{% if d.version_oldest != d.version_newest %} - {{ p.version_newest }}{% endif %}
+{% endfor %}
+|===
+// end::product-{{ p.product_slug }}[]
+{% endfor %}
