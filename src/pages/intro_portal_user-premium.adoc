@@ -1,0 +1,4 @@
+= Introduction to {portal_product}
+
+As a premium user, you have all the options.
+Your version of this {portal_term} will show all the bells and whistles.
