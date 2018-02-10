@@ -1,0 +1,30 @@
+common:
+  theme_path: ".."
+portal-1:
+  portal_slug: user
+  portal_user: User
+  portal_product: ACMEdoc Basic
+  products_covered: ["basic"]
+  user_role: user
+  user_verb: develop and manage great docs with
+  site_path: basic
+  show_basic:
+portal-2:
+  portal_slug: user
+  portal_user: User
+  portal_product: ACMEdoc Fab
+  products_covered: ["fab"]
+  user_role: user
+  user_verb: develop great docs
+  site_path: fab
+  show_basic:
+portal-3:
+  portal_slug: developer
+  portal_user: Developer
+  portal_product: ACMEdoc
+  products_covered: ["basic","fab"]
+  user_role: developer
+  user_verb: extend and customize
+  site_path: dev
+  show_basic:
+  show_premium:

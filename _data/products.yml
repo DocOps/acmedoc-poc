@@ -1,0 +1,24 @@
+- # product[0]
+  slug: basic
+  name: ACMEdoc Basic
+  description: |
+    Even though all of ACMEdoc is free, ACMEdoc Basic is so named to indicate that it does not have unicorn pictures throughout the interface.
+  supported:
+    - dependency: LiquiDoc
+      version_oldest: 0.7.0
+      version_newest: 0.7.0
+    - dependency: Asciidoctor
+      version_oldest: 1.5.5
+      version_newest: 1.5.6
+- # product[1]
+  slug: fab
+  name: ACMEdoc Fabulous
+  description: |
+    Where ACMEdoc basic is just that, ACMEdoc Fabulous -- which we call ACMEfab around the office -- is littered with pictures of rainbows and unicorns.
+  supported:
+    - dependency: LiquiDoc
+      version_oldest: 0.7.0
+      version_newest: 0.7.0
+    - dependency: Asciidoctor
+      version_oldest: 1.5.6
+      version_newest: 1.5.6

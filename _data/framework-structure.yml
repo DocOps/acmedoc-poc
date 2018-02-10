@@ -1,0 +1,29 @@
+- name: _configs/
+  description: This is where we tell our tooling how to do what.
+
+- name: _data/
+  description: Where we store small-data files.
+
+- name: _templates/
+  description: This directory is for storing templates used in preprocessing.
+
+- name: build/
+  description: A directory created and written to during the build process. Because it is effectively ephemer
+
+- name: src/
+  description: This is where _most_ of our content will come from.
+
+- name: src/includes/
+  description: Snippets and partials go in here. This is where we put highly reusable and often partly dynamic text content.
+
+- name: src/topics/
+  description: Topics are different from
+
+- name: src/[content]/
+  description: A freely named directory for your main content, however organized. Often called `pages/` to comport with Jekyll conventions.
+
+- name: src/*index*.adoc
+  description: The defining file for book builds and the homepage and something of a map for site builds.
+
+- name: theme/
+  description: Files for defining layout and style for _publishing_ go here. Not to be confused with `_layouts/`, which holds similarly purposeful files for structuring content in preprocess operations.
