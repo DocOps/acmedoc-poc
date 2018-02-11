@@ -1,6 +1,7 @@
 common:
   theme_path: ".."
 portal-1:
+  portal_id: 1
   portal_slug: user
   portal_user: User
   portal_product: ACMEdoc Basic
@@ -10,6 +11,7 @@ portal-1:
   site_path: basic
   show_basic:
 portal-2:
+  portal_id: 2
   portal_slug: user
   portal_user: User
   portal_product: ACMEdoc Fab
@@ -19,6 +21,7 @@ portal-2:
   site_path: fab
   show_basic:
 portal-3:
+  portal_id: 3
   portal_slug: developer
   portal_user: Developer
   portal_product: ACMEdoc
