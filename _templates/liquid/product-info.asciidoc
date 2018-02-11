@@ -23,5 +23,5 @@ include::../_configs/build-docs.yml[tags="product-info"]
 | {{ d.version_oldest }}{% if d.version_oldest != d.version_newest %} - {{ p.version_newest }}{% endif %}
 {% endfor %}
 |===
-// end::product-{{ p.product_slug }}[]
+// end::product-{{ p.slug }}[]
 {% endfor %}

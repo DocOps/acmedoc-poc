@@ -1,6 +1,6 @@
 [cols="1,4"]
 |===
 {% for term in data %}
-| {{ name }}
-| {{ description }}{% endfor %}
+| {{ term.name }}
+| {{ term.description }}{% endfor %}
 |===
