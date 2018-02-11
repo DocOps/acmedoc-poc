@@ -311,68 +311,7 @@ acmedoc-poc/
 ----
 // tag::acmedoc-structure-diagram[]
 
-_configs/::
-This is where we tell our tooling how to do what.
-The YAML file `build-portals.yml` is LiquiDoc instructions for the whole build.
-We will add Jekyll config files in here soon.
-There could also be Asciidoctor config files here, but attributes should be restricted to build/publish arguments, not documentation content of any kind.
 
-_data/::
-+
---
-* `asciidoctor.yml` is for Asciidoctor build config _and_ global Asciidoctor settings.
-(This should maybe go into `_configs`, since it's build-related.)
-
-* `company.yml` is for information about the company itself.
-
-* `portals.yml` contains 3 blocks, one for each portal.
-
-* `products.yml` contains data about product offerings.
-
-* `terms.yml` is basically the makings of a glossary. It is not ingested as Asciidoctor attributes, but rather pressed into AsciiDoc format by LiquiDoc during preprocessing.
---
-
-_templates/::
-This directory is for storing templates used in preprocessing.
-The subfolders (such as `liquid`, `asciidoc`, and eventually `haml`) reference the format of the template files they contain.
-In the `liquid/` subdirectory, however, contained files, however, are saved with file extensions that represent the type of file they will produce.
-So `terms.asciidoc` is formatted in Liquid but generates AsciiDoc-ready output by LiquiDoc.
-+
-[NOTE]
-We do not normally think of AsciiDoc as a templating system, but it actually is.
-Because it has dynamic capabilities (variable substitution, conditional processing, and file inclusion), AsciiDoc files can be used to preprocess content.
-They can be made up mostly of structural elements (like tables) with placeholders where ingested data will be injected.
-Most `.adoc` files, however, will be kept in `src`, as they'll have actual content.
-
-build/::
-This directory is _not_ in the repo.
-Instead, it is created by LiquiDoc during preprocessing, and it should never be committed (the `.gitignore` file should prevent this).
-First, we migrate all of the dirs and files in `src/` into `build/` so we can have everything where we need it for the next steps.
-Then we save LiquiDoc-parsed files inside `build/`, specifically for instance in `build/includes/built/`, where our AsciiDoc files know to look at render time.
-
-src/::
-This is where _most_ of our content will come from.
-
-includes/:::
-Stick all kinds of snippets and partials in here.
-If it will never be a standalone topic but will maybe be used in multiple places, such as reused admonitions, place it here.
-
-pages/:::
-This is for the main content. It's true that “pages” is a particularly Web-oriented concept as a unit of content _type_ (rather than a statement of size or placement).
-But the concept of a _page_ as a type of content unit is pretty handy.
-
-topics/:::
-Topics are used here in the DITA/reuse sense of topic-based authoring, not as a term of taxonomy.
-This is for content that may be a little more general than the primary publication/s we may have in mind.
-It may help to think of these as Knowledge Base source material, possibly including material that would appear in multiple places as well as include subject matter that might be outside the scope of our main publication.
-
-index.adoc:::
-This is the defining file for book builds and the homepage and something of a map for site builds.
-It is pretty well self-documented.
-
-theme/::
-Files for defining layout and style of the final product go here.
-Our goal is to keep the rest of our source code fairly agnostic about what's in here.
 
 === Process
 
