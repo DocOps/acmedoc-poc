@@ -1,7 +1,10 @@
 url: 127.0.0.1/fab
 exclude:
   - assets/
+  - docs/
   - theme/
   - includes/
   - snippets/
-  - site
+  - site/
+  - index.html
+keep_files: [basic,assets]

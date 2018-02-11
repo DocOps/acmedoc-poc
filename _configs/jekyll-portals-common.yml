@@ -2,10 +2,3 @@ images_dir:   ../assets/images
 css_dir:      ../theme/css
 theme_common_dir: ../theme
 js_dir: ../theme/js
-
-exclude:
-  - assets/
-  - theme/
-  - includes/
-  - snippets/
-  - index.html

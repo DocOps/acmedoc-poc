@@ -41,6 +41,8 @@
   source: src/index.html
   target: build/site # => build/site/theme
 # Begin Asciidoctor-driven render operations
+# tag::render-block[]
+# Build the 'Basic' guide
 - action: render
   data:
       - _configs/asciidoctor.yml
@@ -49,11 +51,12 @@
       - _data/portals.yml:portal-1
   source: build/portal-index.adoc
   builds:
-    # - output: build/docs/user-guide.pdf
-    #   attributes:
-    #     portal_term: Manual
-    #     doctype: book
-    #     pdf:
+    - output: build/docs/basic-guide.pdf
+      attributes:
+        portal_term: Manual
+        doctype: book
+        pdf:
+        includes_path: ../includes
     - backend: jekyll
       properties:
         files:
@@ -61,9 +64,12 @@
           - _configs/jekyll-portals-common.yml
           - _configs/jekyll-portal-1.yml
         arguments:
-          destination: build/site/basic
+          destination: build/site
       attributes:
         portal_term: Guide
+        includes_path: includes
+# end::render-block[]
+# Build the 'Fabulous' guide
 - action: render
   data:
       - _configs/asciidoctor.yml
@@ -72,11 +78,12 @@
       - _data/portals.yml:portal-2
   source: build/portal-index.adoc
   builds:
-    # - output: build/docs/user-guide.pdf
-    #   attributes:
-    #     portal_term: Manual
-    #     doctype: book
-    #     pdf:
+    - output: build/docs/fabulous-guide.pdf
+      attributes:
+        portal_term: Manual
+        doctype: book
+        pdf:
+        includes_path: ../includes
     - backend: jekyll
       properties:
         files:
@@ -84,9 +91,11 @@
           - _configs/jekyll-portals-common.yml
           - _configs/jekyll-portal-2.yml
         arguments:
-          destination: build/site/fab
+          destination: build/site
       attributes:
         portal_term: Guide
+        includes_path: includes
+# Build the 'Developer' guide
 - action: render
   data:
       - _configs/asciidoctor.yml
@@ -95,11 +104,12 @@
       - _data/portals.yml:portal-3
   source: build/portal-index.adoc
   builds:
-    # - output: build/docs/user-guide.pdf
-    #   attributes:
-    #     portal_term: Manual
-    #     doctype: book
-    #     pdf:
+    - output: build/docs/dev-guide.pdf
+      attributes:
+        portal_term: Manual
+        doctype: book
+        pdf:
+        includes_path: ../includes
     - backend: jekyll
       properties:
         files:
@@ -107,11 +117,25 @@
           - _configs/jekyll-portals-common.yml
           - _configs/jekyll-portal-3.yml
         arguments:
-          destination: build/site/dev
+          destination: build/site
       attributes:
         portal_term: Guide
+        includes_path: includes
+# Make a copy of the theme/ dir inside site/
 - action: migrate
-  source: build/site
-  target: ../acmedoc-www
-  options:
-    inclusive: false
+  source: build/theme
+  target: build/site
+# Make a copy of the assets/ dir inside site/
+- action: migrate
+  source: build/assets
+  target: build/site
+# Make a copy of the PDFs inside site/ dir for convenient serving
+- action: migrate
+  source: build/docs
+  target: build/site
+
+# - action: migrate
+#   source: build/site
+#   target: ../acmedoc-www
+#   options:
+#     inclusive: false
