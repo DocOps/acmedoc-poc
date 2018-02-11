@@ -1,9 +1,10 @@
 = Product Overview
+:page-permalink: '{site_path}/product-overview'
 
 This is an overview of {portal_product} for {user_role}s.
 
 [TIP]
-The terms {portal_product} and {user_role} are variables (`\{portal_product}` and `\{user_role}`).
+The terms _{portal_product}_ and _{user_role}_ are variables (`\{portal_product}` and `\{user_role}`).
 
 // tag::example-conditional-product-tag[]
 ifdef::show_free[]

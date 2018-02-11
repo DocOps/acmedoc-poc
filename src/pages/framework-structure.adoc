@@ -1,0 +1,15 @@
+= Framework Structure
+:page-permalink: '{site_path}/framework-structure'
+
+An implementation of LiquiDoc CMF such as ACMEdoc starts with a core architecture made up of the directories and files listed below.
+
+ifdef::pdf[]
+include::{includes_path}/built/framework-structure-table.adoc[]
+endif::[]
+ifndef::pdf[]
+include::{includes_path}/built/framework-structure-dlist.adoc[]
+endif::[]
+
+[TIP]
+In the PDF edition of this document, the above appears as a table; in the website edition, it is a definition list.
+Both are drawn from the same source (`_data/framework-structure.adoc`), which is parsed using the generic templates `terms-to-table.asciidoc` and `terms-to-dlist.asciidoc`, each generating a file in the ephemeral directory `build/includes/built/` (those being `framework-strcture-dlist.adoc` and `framework-structure-table.adoc`).

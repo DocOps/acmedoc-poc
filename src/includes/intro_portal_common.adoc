@@ -1,0 +1,3 @@
+Welcome to the {portal_product} {portal_user} {portal_term}!
+
+Here you will learn to {user_verb} {portal_product} as a {user_role}.
