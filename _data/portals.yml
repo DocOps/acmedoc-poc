@@ -2,6 +2,7 @@ common:
   theme_path: ".."
 portal-1:
   portal_id: 1
+  portal_basic:
   portal_slug: user
   portal_user: User
   portal_product: ACMEdoc Basic
@@ -12,6 +13,7 @@ portal-1:
   show_basic:
 portal-2:
   portal_id: 2
+  portal_fab:
   portal_slug: user
   portal_user: User
   portal_product: ACMEdoc Fab
@@ -22,6 +24,7 @@ portal-2:
   show_basic:
 portal-3:
   portal_id: 3
+  portal_dev:
   portal_slug: developer
   portal_user: Developer
   portal_product: ACMEdoc
