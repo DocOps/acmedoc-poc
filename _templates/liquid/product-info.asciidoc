@@ -9,7 +9,7 @@ The iterative parsing is carried out by LiquiDoc during preprocessing.
 .From `_configs/build-docs.yml`
 [source,yaml]
 ----
-include::../_configs/build-docs.yml[tags="product-info"]
+include::{root_path}/../_configs/build-docs.yml[tags="product-info"]
 ----
 
 === Upstream Dependency Support
