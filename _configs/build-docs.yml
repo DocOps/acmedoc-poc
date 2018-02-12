@@ -33,6 +33,17 @@
       template: _templates/liquid/terms-to-table.asciidoc
     - output: build/includes/built/framework-structure-dlist.adoc
       template: _templates/liquid/terms-to-dlist.asciidoc
+# tag::regex-notice[]
+# Generate structured NOTICE output
+- action: parse
+  data:
+    file: NOTICE
+    type: regex
+    pattern: ^(?<name>.*)\s\|\s(?<license>[a-zA-Z0-9\.\s]+)\s(\(http(?<license_url>.*\))\s)?\|\s\(c\)\s(?<author>.*)\s\|\s(?<package_url>.*)$
+  builds:
+    - template: _templates/liquid/dependencies.asciidoc
+      output: build/includes/built/dependencies_table.adoc
+# end::regex-notice[]
 # Move migrated (and possibly preprocessed) theme files to common site root
 - action: migrate
   source: build/theme
@@ -57,6 +68,7 @@
         doctype: book
         pdf:
         includes_path: ../includes
+        root_path: ../..
     - backend: jekyll
       properties:
         files:
@@ -68,6 +80,7 @@
       attributes:
         portal_term: Guide
         includes_path: includes
+        root_path: ..
 # end::render-block[]
 # Build the 'Fabulous' guide
 - action: render
@@ -84,6 +97,7 @@
         doctype: book
         pdf:
         includes_path: ../includes
+        root_path: ../..
     - backend: jekyll
       properties:
         files:
@@ -95,6 +109,7 @@
       attributes:
         portal_term: Guide
         includes_path: includes
+        root_path: ..
 # Build the 'Developer' guide
 - action: render
   data:
@@ -110,6 +125,7 @@
         doctype: book
         pdf:
         includes_path: ../includes
+        root_path: ../..
     - backend: jekyll
       properties:
         files:
@@ -121,6 +137,7 @@
       attributes:
         portal_term: Guide
         includes_path: includes
+        root_path: ..
 # Make a copy of the theme/ dir inside site/
 - action: migrate
   source: build/theme

@@ -6,3 +6,23 @@ They are also generated as JSON at `/data/terms.json` so we can highlight them i
 This is just to show the power of storing data in flat files reusable throughout product docs.
 
 include::{includes_path}/built/terms.adoc[]
+
+[[glossary-sourcing]]
+.How this glossary was sourced
+****
+The contents of this appendix were drawn from a semi-structured “small data” file (`_data/terms.yml`), which looks a little something like this:
+
+[source,yaml]
+.terms.yml
+----
+include::{root_path}/_data/terms.yml[tags="sample"]
+----
+
+This data is combined with the template at `_templates/liquid/terms.asciidoc` to build an AsciiDoc formatted file (`build/includes/built/terms.adoc`).
+****
+
+[TIP]
+.GETTING META!
+You wanna know what's really friggin cool?
+The example YAML snippet above is drawn directly from the _actual file_ at build time.
+That means the above will always display the exact, actual content of the YAML it is referencing.
