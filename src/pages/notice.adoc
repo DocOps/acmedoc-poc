@@ -1,5 +1,5 @@
 = NOTICE of Packaged Dependencies
-:page-permalink: {site_path}/notice
+:page-permalink: '{site_path}/notice'
 
 The following open source packages are fully or partially included with ACMEdoc.
 
@@ -31,3 +31,8 @@ And here is the section from `_configs/build-docs.yml` that instructs the data e
 include::{root_path}/_configs/build-docs.yml[tags=regex-notice]
 ----
 ****
+
+[TIP]
+.META AF!
+Here again we find examples of code listings drawn from their canonical source.
+The `NOTICE` file in its entirety, and a segnment of the build configuration YAML using `include::{root_path}/_configs/build-docs.yml[tags=regex-notice]`.
