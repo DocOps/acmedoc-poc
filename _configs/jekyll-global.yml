@@ -16,24 +16,27 @@ css_dir:      theme/css
 theme_common_dir: theme
 js_dir: theme/js
 
-asciidoc: {}
+# AsciiDoc/Asciidoctor settings
+asciidoc:
+  require_front_matter_header: true
+  ext: adoc
 asciidoctor:
   safe: 0
   base_dir: :source
 # Do NOT place attributes here when building with LiquiDoc
-# They will be loaded from other external sources
+# They are best loaded from other external sources
 
 
 # Reading Files
 include:
-  - index.html
+  - index.html # hard-coded catch-all landing page
 keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Conversion
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
@@ -52,7 +55,7 @@ kramdown:
 
 # Sass/SCSS
 sass:
-  sass_dir: theme/jekyllnow/_sass
+  sass_dir: theme/docutheme/_sass
   style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 # Plugins

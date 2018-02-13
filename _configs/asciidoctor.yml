@@ -4,3 +4,6 @@ base_dir: :source
 safe: 0
 project_root_path_from_build: ..
 icons: font
+idprefix:
+source-highlighter: pygments
+pygments-css: style
