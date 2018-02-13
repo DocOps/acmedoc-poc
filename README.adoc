@@ -347,16 +347,13 @@ AsciiDoc preprocessing::
 
 LiquiDoc massages data into AsciiDoc-formatted files and saves them in the `build/` directory, where they can be read when we actually render our AsciiDoc files into documents.
 This data can be in YAML, JSON, XML, CSV, or even free-form formats that can be parsed with regular expressions.
+By storing data in flat files using these semi-structured formats (instead of a relational database), data can live in the code repository under source control.
+By using these small-data formats instead of “hard coding” data into your docs, you keep it available for reformatting (by LiquiDoc or other tools) and make it accessible to other programming languages, most of which can read YAML, JSON, and XML.
 
 YAML attributes ingest::
 
 AsciiDoc uses variables called _attributes_, but it's not very good at consuming these from external files.
 LiquiDoc fixes this by letting us convert the data in _multiple_ YAML-formatted flat files into attributes when we go to render our final docs.
-
-With this preprocessing and data-ingest strategy, we greatly expand the single-source (DRY) potential of our docs-as-code system.
-We can either write entire sections of AsciiDoc files by massaging data with Liquid-formatted templates, or we can feed AsciiDoc-readable variables right into the rendering engine, pressing them into the content where token placeholders exist.
-
-=== Additional Procedural Points
 
 Asset migration::
 +
@@ -366,6 +363,9 @@ ACMEdoc actually moves files around quite a bit, often making two copies of vari
 [TIP]
 Duplication of source files during the build is standard and acceptable practice.
 Remember, the `build/` directory is never committed to the repository, so as long as automation tools are configured to use duplicated files properly, there is no problem with this often necessary approach.
+
+With this preprocessing and data-ingest strategy, we greatly expand the single-source (DRY) potential of our docs-as-code system.
+We can either write entire sections of AsciiDoc files by massaging data with Liquid-formatted templates, or we can feed AsciiDoc-readable variables right into the rendering engine, pressing them into the content where token placeholders exist.
 
 == License
 
