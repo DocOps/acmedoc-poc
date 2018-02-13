@@ -1,18 +1,23 @@
 = ACMEdoc: The LiquiDoc CMF Demo Docs
 :github_project_url: https://github.com/DocOps/acmedoc-poc
+:github_project_git_uri: git@github.com:DocOps/acmedoc-poc.git
 :liquidoc-cmf_github_project_url: https://github.com/DocOps/liquidoc-cmf
 :liquidoc-gem_github_project_url: https://github.com/briandominick/liquidoc-gem
 
-*This project is a proof of concept* for demonstrating the potential power and capacity of an open docs-as-code *content-management framework*, namely one based on the *LiquiDoc CMF* standard being developed in unison with this initial use-case project.
+// tag::project-intro[]
+*This project is a proof of concept* for demonstrating the potential power and capacity of an open docs-as-code *content-management framework*, namely one based on the *LiquiDoc CMF* (LDCMF) standard being developed in unison with this initial use-case project.
 
 “ACMEdoc” is a parody project name, and this entire repo is for purposes of modeling and evaluating some big ideas for keeping documentation source close to the software it references.
 
 LiquiDoc CMF is a way to get technical documentarians working more closely to developers, in terms of virtual space (like code repositories), types of tools (open source apps and flat files), and workflow (Git and issue-tracking systems).
+And ACMEdoc is an example of how all this comes together, documenting the power of LDCMF by _describing how the ACMEdoc artifacts themselves are sourced and generated_.
+// end::project-intro[]
 
 == Project Overview
-
+// tag:: project-overview[]
 ACMEdoc is a phony product with real documentation.
 It's kind of a wrapper for LiquiDoc CMF, simultaneously demonstrating and describing a way to quite fully implement the CMF's various features and capabilities.
+// end:: project-overview[]
 
 === What's that F Word?
 
@@ -35,7 +40,7 @@ For the more complex edge cases, with messy repos or highly conditional, interre
 // Check out the artifacts that are all generated from this source repository.
 //
 // * ACMEdoc Portal Main
-// ** ACMEdoc Developer's Guide (PDF)
+// ** ACMEdoc Developer's Portal (HTML) / Guide (PDF)
 // ** ACMEdoc Writer's Guide (PDF)
 // ** ACMEdoc Cloud Guide (PDF)
 //
@@ -101,21 +106,22 @@ Parallel to some products' Premium Users tier, this free Fabulous tier will incl
 // tag::dimension-multiple-output-formats[]
 Any time the same documentation needs to appear in two or more output formats, a dimension is spawned.
 This was far more common when every product needed to maintain PDF and HTML versions of their docs.
-That use case is still fairly common, however,
+That use case is still fairly common, however, and usually the source for each output format must be distinct in a few ways due to the inherent constraints of each.
+ACMEdoc addresses these differences without duplicating source.
 // end::dimension-multiple-ouptut-formats[]
 // end::dimensions[]
 
 [NOTE]
 .Output formats of ACMEdoc's docs
-We will maintain a wiki-like static website that encourages users to submit contributions, as well as PDF and one-page HTML editions of that same content.
+We will maintain a wiki-like static website that encourages users to submit contributions, as well as PDF and one-page HTML editions of that nearly exact content.
 
 // tag::dimensions[]
 ==== Multiple Publications
 // tag::dimension-multiple-publications[]
 It goes without saying that whenever you produce documentation artifacts that cover different subjects but share some common material, you are adding a dimension to your docs output.
-In practice this idea usually tracks closely with audience roles, but mature project may be served by “Advanced” guides or even “Beginner” guides.
+In practice this idea usually tracks closely with audience roles, but a mature project may be served by special “Advanced” or “Beginner” guides for the same role.
 
-In other cases, publications will differ entirely, possibly even by media, such as a slide deck product walkthrough or perhaps marketing materials that appear on an entirely different part of the company's website, with delivery needs all their own.
+In other cases, publications will differ entirely, possibly even by media, such as a slide deck product walkthrough or perhaps marketing materials that appear on a different part of the company's website, with delivery needs all their own.
 These create distinct artifacts that require distinctive handling.
 // end::dimension-multiple-publications[]
 // end::dimensions[]
@@ -165,7 +171,7 @@ You're experiencing source format divergence, and ACMEdoc is your ticket to unif
 
 [NOTE]
 .Source convergence in ACMEdoc
-We will purposely simulate “legacy” source formats for some auxiliary content in order to demonstrate the conversion powers of Pandoc and TILT.
+We will purposely simulate “legacy” source formats for some auxiliary content in order to demonstrate the powers of conversion and manipulation.
 
 ==== Internal vs Customer-facing
 // tag::dimension-internal-facing[]
@@ -190,7 +196,7 @@ The framework will also incorporate some kind of a general API, as documented in
 // tag::extension-release-history[]
 Put simply, this task can be a huge burden.
 Release notes and changelog items need to be coordinated with a team's task/issue tracker, where they originate.
-Since every reasonable issue-tracking system has a REST API, we'll use LiquiDoc's (upcoming) REST API capabilities to draw content from that system.
+Since every reasonable issue-tracking system has a REST API, we'll use LiquiDoc's (link:https://github.com/briandominick/liquidoc-gem/issues/10[upcoming]) REST API capabilities to draw content from that system.
 // end::extension-release-history[]
 // end::extensions[]
 
@@ -201,16 +207,16 @@ To demonstrate this, we will sync the ACMEdoc release history up to its own or L
 // tag::extensions[]
 ==== Dependency License Management
 // tag::extension-dependency-license[]
-If your product packages third-party dependencies bearing license-notification requirements, our product needs to comply.
-It's not just the legal thing to do, it's literally the least we can do to repay the hackers who work hard to develop, release, and maintain the software that we get huge use out of, if not profits from.
-For big projects, there are bad ways to do this right, and there are terrible ways.
-We'll advise and instruct the least painful way we know to manage this issue.
+If your product packages third-party dependencies bearing license-notification requirements, compliance is mandatory.
+It's not just the legal thing to do, it's literally the least we can do to repay the hackers who work hard to develop, release, and maintain the software that we get use out of, if not profits from.
+For big projects, there are bad ways to do dependency management, and there are terrible ways to do it.
+We'll advise and instruct the least painful way we know, including tooling and workflow examples.
 // end::extension-release-history[]
 // end::extensions[]
 
 [NOTE]
 .ACMEdoc dependency licenses
-ACMEdoc technically has no dependencies at this time, but this project can find a way to use copyrighted material and demonstrate reporting it in a NOTICE file.
+ACMEdoc's plain-text `NOTICE` file is used as the _source_ for a rich-text edition in the ACMEdoc artifacts.
 
 // tag::extensions[]
 ==== Continuous Integration
@@ -224,19 +230,31 @@ Since ACMEdoc is intended to be an _element of_ a broader product develoment pro
 
 // tag::conventions[]
 ==== Strict DRYness
-// tag::convention-readme-dry[]
-The holy grail of source code, and thus of docs-as-code, is to never include the same chunk of code twice: “Don't Repeat Yourself”.
+// tag::convention-dryness[]
+The holy grail of source code, and thus of docs-as-code, is to never include the same chunk of code twice: “Don't Repeat Yourself” or DRY.
 This extends to not including unprocessed source in the same repository with anything it produces.
-We'll explore the ins and outs of, as well as some caveats to, this possibly unachievable ideal.
-// end::convention-readme-dry[]
+We'll explore the ins and outs of, as well as some caveats to, this possibly unachievable ideal all good engineering teams strive for.
+// end::convention-dryness[]
 // end::conventions[]
 
 // tag::conventions[]
 ==== README Single Sourcing
 // tag::convention-readme-dry[]
 Our insistence on DRYness has one very significant caveat...
-As of now, GitHub and GitLab do a regretably mediocre job of rendering AsciiDoc code in its online “preview” display mode.
-Don't get me wrong -- I am _psyched_ that both major services honor AsciiDoc as well as they do, and I am confident this will improve greatly before long.
+As of now, GitHub and GitLab do a regretably mediocre job of rendering AsciiDoc code in their online “preview” display modes.
+(Don't get me wrong -- I am _psyched_ that both major services honor AsciiDoc as well as they do, and I am confident this will improve greatly before long.)
+
+This puts limits on any file that must be displayed as-is in the repository preview on either of these services -- and here I mean the `README` but also a `CONTRIBUTORS` or `NOTICE` files.
+All these files contain content that should appear in rich-text form when viewed in the repo via browser, but also rendered as final output in product documentation.
+
+For now, because any good `README` file has to include canonical information about the product, the `README` itself can be used as a canonical source, and the rest of the docs can draw from it.
+This very `README.adoc` file is littered with AsciiDoc include tags so that AsciiDoc files can draw content from it.
+In fact, I am probably abusing the `README` as we speak (as I've been known to do before), in this case mainly to illustrate this very point.
+
+[TIP]
+A `README` file in any format is unlikely to prove a worthy source for product code.
+This means anywhere the `README` must reflect _data_ about the product (pieces of information that are “hard coded” into the product), that data must be duplicated in the `README`.
+Whereas, any content that can be kept out of the README and stored in semi-strucutred formats should be.
 
 // end::convention-readme-dry[]
 // end::conventions[]
@@ -260,6 +278,9 @@ If you have other use cases, please link:{github_project_url}/issues/new[contrib
 === Build
 
 . Clone or download this repository to your local machine.
++
+ git clone {github_project_git_uri}
+ cd acmedoc-poc
 
 . Obtain the required Ruby dependency gems.
 +
@@ -267,15 +288,14 @@ If you have other use cases, please link:{github_project_url}/issues/new[contrib
 
 . Run the configured build.
 +
- bundle exec liquidoc -c _configs/build-portals.yml
+ bundle exec liquidoc -c _configs/build-docs.yml
 
-LiquiDoc will compile PDFs (see `build/docs/`).
-HTML output is limited to standalone files at the moment (see `build/site/`).
-Jekyll build functionality is coming soon, as well as possibly other static site generators.
+LiquiDoc will compile PDFs (see `build/docs/`) then builds parallel Jekyll sites under `build/site/`.
 
-[WARNING]
-At this time, the Bundler is configured to use a pre-release version of LiquiDoc hosted on GitHub.
-See the bottom line in `Gemfile`.
+To serve your built Jekyll sites as one:
++
+ bundle exec jekyll s --destination build/site \
+  --config _configs/jekyll-global.yml --skip-initial-build
 
 == Framework
 
@@ -311,8 +331,6 @@ acmedoc-poc/
 ----
 // tag::acmedoc-structure-diagram[]
 
-
-
 === Process
 
 Asciidoctor is pretty awesome, but it has some serious limitations when it comes to working with data in non-native formats.
@@ -322,7 +340,7 @@ Therefore, the power of LiquiDoc is mainly in two of its features:
 . AsciiDoc preprocessing.
 +
 LiquiDoc massages data into AsciiDoc formatted files and saves them in the `build/` directory, where they can be read when we actually render our AsciiDoc files into documents.
-This data can be in `YAML`, `JSON`, `XML`, `CSV`, or even free-form formats that can be parsed with regular expressions.
+This data can be in YAML, JSON, XML, CSV, or even free-form formats that can be parsed with regular expressions.
 
 . YAML attributes ingest.
 +
