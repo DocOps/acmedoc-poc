@@ -5,11 +5,11 @@
 :liquidoc-gem_github_project_url: https://github.com/briandominick/liquidoc-gem
 
 // tag::project-intro[]
-*This project is a proof of concept* for demonstrating the potential power and capacity of an open docs-as-code *content-management framework*, namely one based on the *LiquiDoc CMF* (LDCMF) standard being developed in unison with this initial use-case project.
+*This project is a proof of concept* for demonstrating the potential power and capacity of an open docs-as-code *content-management framework*, namely one based on the link:{cmf_github_project_url}[*LiquiDoc CMF* (LDCMF)] standard being developed in unison with this initial use-case project.
 
-“ACMEdoc” is a parody project name, and this entire repo is for purposes of modeling and evaluating some big ideas for keeping documentation source close to the software it references.
+“ACMEdoc” is a parody project name, and this entire repo is *for purposes of modeling and evaluating* some big ideas for keeping documentation source close to the software it references.
 
-LiquiDoc CMF is a way to get technical documentarians working more closely to developers, in terms of virtual space (like code repositories), types of tools (open source apps and flat files), and workflow (Git and issue-tracking systems).
+LiquiDoc CMF is a way to *get technical documentarians working more closely to developers*, in terms of virtual space (same or embedded code repositories), types of tools (open source apps and flat files), and workflow (Git and issue-tracking systems).
 And ACMEdoc is an example of how all this comes together, documenting the power of LDCMF by _describing how the ACMEdoc artifacts themselves are sourced and generated_.
 // end::project-intro[]
 
@@ -22,18 +22,18 @@ It's kind of a wrapper for LiquiDoc CMF, simultaneously demonstrating and descri
 === What's that F Word?
 
 Unlike a traditional  link:https://en.wikipedia.org/wiki/Component_content_management_system[component content management system (CCMS)], LiquiDoc CMF will be an *open _framework_* for developing documentation architecture.
-That is, LDCMF is intended to be a set of rules and tools that establish a standard between documentation projects.
+That is, LDCMF is intended to be a set of rules and tools that establish a standard between documentation projects, as well as helping bootstrap those projects.
 The framework is little more than a convention for how to arrange data and content in source files in ways that can be readily integrated with broader product development and release processes.
 
 This framework will hopefully be flexible enough to accommodate a huge <<the-challenge,range of docs challenges>> faced by complex product demands, all without constraining implementers and users into proprietary or overly restrictive alternatives.
 
-A docs framework like LiquiDoc CMF is best suited for *product-integrated documentation*, but any project can take advantage of its tooling and conventions.
+A docs framework like LiquiDoc CMF is best suited for *product-integrated documentation*, but any complex docs project can take advantage of its tooling and conventions.
 Integrated documentation is not just stored in the same repository as the source code for the product it documents, it actually _shares source code_ and/or data with the product itself.
 We'll explore this concept in some depth here with ACMEdoc.
 
 The truth is, most small, straightforward software projects can be well served by existing docs-as-code solutions like link:https://readthedocs.org/[ReadTheDocs], link:http://www.mkdocs.org/[MkDocs].
 Heck, any simple static site generator can handle 90% of the software documentation projects that can currently be addressed in a docs-as-code environment.
-For the more complex edge cases, with messy repos or highly conditional, interrelated products/editions, a truly open-ended, open-source solution still evades us.
+For the more complex edge cases, with messy repos or highly conditional, interrelated products/editions, a truly open-ended, open-source solution is needed.
 
 // === Artifacts
 //
@@ -58,32 +58,36 @@ For the more complex edge cases, with messy repos or highly conditional, interre
 
 == ACMEdoc Project Challenges & Objectives
 
-The intention for LiquiDoc CMF and this ACMEdoc demo project is to prove out a docs-as-code approach for solving highly complex documentation problems, even if the modestly scaled project at hand is 100 times as complex as it is large.
-The goal is to make ACMEdoc as complicated to document as possible, even if there's not much _there_ there.
+The intention for LiquiDoc CMF and this ACMEdoc demo project is to prove out a docs-as-code approach for solving highly complex documentation problems, even if the modestly scaled project at hand (ACMEdoc) is far more complex than it is large.
+The goal is to make ACMEdoc as complicated to document as possible, then solving it all with open standards and free, open-source tools.
 
 Most of the real-world obstacles faced by our documentation infrastructure have to do with the tendency for source divergence, so ACMEdoc focuses heavily on solving source-divergence challenges.
-In the next section, we'll look at the range of divergence points we will simulate and document here.
+In the <<the-challenge,next section>>, we'll look at the range of divergence points we will simulate and document here.
 
-Additionally, this repository will be used to model several features of the underlying LiquiDoc and Asciidoctor tools to address several additional problems commonly encountered by product teams.
+Additionally, this repository will be used to model several features of the underlying *LiquiDoc* and *Asciidoctor* tools to address several additional problems commonly encountered by product teams.
 These include managing release history and dependency licensing, as well as syncing docs into the product's continuous integration (CI) routine.
 
 // [NOTE]
 // Remember, this is the source-code repo for a demonstration project called ACMEdoc.
 // The product's artifacts are available here.
 
+[[the-challenge]]
 === Divergence Challenges
 
 You can imagine any range of complicating factors that cause us to want to split our output.
-Every time we do this, we risk duplicating our source matter, which in turn risks content divergence where it should remain identical.
+Different audiences (users, admins, developers, etc), different product versions (1.0, 1.1, etc), different product editions (basic, premium, cloud, etc) -- you name it, there's at least a temptation to create and serve more than one document or docset.
 
-Each of these divergence points adds a dimensional challenge to our documentation.
+And every time we create more than one version of our docs output, we are tempted to duplicate at least some of our source matter.
+This in turn risks content divergence where it should remain identical.
+
+Each divergence point adds a dimensional challenge to our documentation.
 Just as source divergence is a core concern of developers, so too does it fluster technical documentarians.
 Engineers have found various ways to keep their source code canonical and “DRY” (“don't repeat yourself”).
 Documentarians need to adopt these methods, partly to keep up, but also to engage our subject-matter experts (SMEs) -- the developers themselves -- in maintaining the docs.
 
 With ACMEdoc, we will attempt to document LiquiDoc CMF as a framework, of course using that very framework.
 This reflects the product development concept of “eating our own dog food” -- we will use our “product” to document itself, even if the product is intended to handle use cases more complicated than our own.
-If that's meta enough for you, let's dig into the “dimensions” we want this framework to be able to handle, and thus will model in this repo.
+If that's meta enough for you, let's dig into the “dimensions” we want this framework to be able to handle and thus will model in this repo.
 
 // tag::dimensions[]
 ==== Multiple User Roles
@@ -247,14 +251,14 @@ As of now, GitHub and GitLab do a regretably mediocre job of rendering AsciiDoc 
 This puts limits on any file that must be displayed as-is in the repository preview on either of these services -- and here I mean the `README` but also a `CONTRIBUTORS` or `NOTICE` files.
 All these files contain content that should appear in rich-text form when viewed in the repo via browser, but also rendered as final output in product documentation.
 
-For now, because any good `README` file has to include canonical information about the product, the `README` itself can be used as a canonical source, and the rest of the docs can draw from it.
+For now, because any good `README` file has to include canonical information about the product, the README itself can be used as a canonical source, and the rest of the docs can draw from it.
 This very `README.adoc` file is littered with AsciiDoc include tags so that AsciiDoc files can draw content from it.
-In fact, I am probably abusing the `README` as we speak (as I've been known to do before), in this case mainly to illustrate this very point.
+In fact, I am probably abusing the README as we speak (as I've been known to do before), in this case mainly to illustrate this very point.
 
 [TIP]
-A `README` file in any format is unlikely to prove a worthy source for product code.
-This means anywhere the `README` must reflect _data_ about the product (pieces of information that are “hard coded” into the product), that data must be duplicated in the `README`.
-Whereas, any content that can be kept out of the README and stored in semi-strucutred formats should be.
+Even if your dynamic docs can draw from the README, a `README` file in any format is unlikely to prove a worthy source for product code.
+This means anywhere the README must reflect _data_ about the product (pieces of information that are “hard coded” into the product), that data must be duplicated in the README.
+Therefore, any content that can be kept out of the README and stored in semi-strucutred formats should be.
 
 // end::convention-readme-dry[]
 // end::conventions[]
@@ -294,8 +298,10 @@ LiquiDoc will compile PDFs (see `build/docs/`) then builds parallel Jekyll sites
 
 To serve your built Jekyll sites as one:
 +
+----
  bundle exec jekyll s --destination build/site \
   --config _configs/jekyll-global.yml --skip-initial-build
+----
 
 == Framework
 
@@ -337,18 +343,29 @@ Asciidoctor is pretty awesome, but it has some serious limitations when it comes
 Since most other applications don't read AsciiDoc's (fairly sad) data structures, we want AsciiDoc to honor popular open data formats.
 Therefore, the power of LiquiDoc is mainly in two of its features:
 
-. AsciiDoc preprocessing.
-+
-LiquiDoc massages data into AsciiDoc formatted files and saves them in the `build/` directory, where they can be read when we actually render our AsciiDoc files into documents.
+AsciiDoc preprocessing::
+
+LiquiDoc massages data into AsciiDoc-formatted files and saves them in the `build/` directory, where they can be read when we actually render our AsciiDoc files into documents.
 This data can be in YAML, JSON, XML, CSV, or even free-form formats that can be parsed with regular expressions.
 
-. YAML attributes ingest.
-+
+YAML attributes ingest::
+
 AsciiDoc uses variables called _attributes_, but it's not very good at consuming these from external files.
 LiquiDoc fixes this by letting us convert the data in _multiple_ YAML-formatted flat files into attributes when we go to render our final docs.
-
++
 With this preprocessing and data-ingest strategy, we greatly expand the single-source (DRY) potential of our docs-as-code system.
 We can either write entire sections of AsciiDoc files by massaging data with Liquid-formatted templates, or we can feed AsciiDoc-readable variables right into the rendering engine, pressing them into the content where token placeholders exist.
+
+=== Additional Procedural Points
+
+Asset migration::
++
+A big part of coordinating a complicated docs build is making sure source files are where they need to be at every step of the build.
+ACMEdoc actually moves files around quite a bit, often making two copies of various sources, each where a different rendering component (Asciidoctor, Jekyll, etc) needs it to be for processing.
++
+[TIP]
+Duplication of source files during the build is standard and acceptable practice.
+Remember, the `build/` directory is never committed to the repository, so as long as automation tools are configured to use duplicated files properly, there is no problem with this often necessary approach.
 
 == License
 
