@@ -1,7 +1,7 @@
 - name: _configs/
   description: This is where we tell our tooling how to do what. The `_configs/` directory usually contains at least one `build\*.yml` file that instructs a build routine as well as an `asciidoctor.yml` file for establishing global AsciiDoc/Asciidoctor settings, and optionally a `jekyll.yml` file to stand in as the `_config.yml` for Jekyll operations.
 
-- name: _data/
+- name: data/
   description: Where we store small-data files.
 
 - name: _templates/

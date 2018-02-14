@@ -2,7 +2,7 @@
 // tag::product-{{ p.slug }}[]
 == {{ p.name }}
 
-Here is some information about {{ p.name }}, drawn from the file `_data/products.yml` and displayed conditionally, depending on which products are assigned to your portal.
+Here is some information about {{ p.name }}, drawn from the file `data/products.yml` and displayed conditionally, depending on which products are assigned to your portal.
 
 === Upstream Dependency Support
 

@@ -257,7 +257,7 @@ In fact, I am probably abusing the README as we speak (as I've been known to do 
 
 [TIP]
 Even if your dynamic docs can draw from the README, a `README` file in any format is unlikely to prove a worthy source for product code.
-This means anywhere the README must reflect _data_ about the product (pieces of information that are “hard coded” into the product), that data must be duplicated in the README.
+This means anywhere the README must reflect data_ about the product (pieces of information that are “hard coded” into the product), that data must be duplicated in the README.
 Therefore, any content that can be kept out of the README and stored in semi-strucutred formats should be.
 
 // end::convention-readme-dry[]
@@ -314,7 +314,7 @@ The LiquiDoc CMF has a core structure and uses orderly configuration to manage p
 acmedoc-poc/
 ├── _configs/
 │   └── build-portals.yml
-├── _data/
+├── data/
 │   ├── asciidoctor.yml
 │   ├── company.yml
 │   ├── portals.yml

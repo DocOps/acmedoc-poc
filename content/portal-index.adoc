@@ -39,7 +39,7 @@ The above text is from a dynamically included file using:
 [source,asciidoc]
  include::portal/intro_portal_{portal_slug}.adoc[]
 
-Where `\{portal_slug}` is a variable defined in a block of a YAML file (`_configs/portals.yml`) that is only passed to one designated portal during the build config file (`_configs/build-docs.yml`), where it is designated as `data: _data/portals.yml:portal-{portal_id}`.
+Where `\{portal_slug}` is a variable defined in a block of a YAML file (`_configs/portals.yml`) that is only passed to one designated portal during the build config file (`_configs/build-docs.yml`), where it is designated as `data: data/portals.yml:portal-{portal_id}`.
 --
 
 // insert 'jargon ahead' warning

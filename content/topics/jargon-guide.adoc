@@ -10,12 +10,12 @@ include::{includes_path}/built/terms.adoc[]
 [[glossary-sourcing]]
 .How this glossary was sourced
 ****
-The contents of this appendix were drawn from a semi-structured “small data” file (`_data/terms.yml`), which looks a little something like this:
+The contents of this appendix were drawn from a semi-structured “small data” file (`data/terms.yml`), which looks a little something like this:
 
 [source,yaml]
 .terms.yml
 ----
-include::{root_path}/_data/terms.yml[tags="sample"]
+include::{root_path}/data/terms.yml[tags="sample"]
 ----
 
 This data is combined with the template at `_templates/liquid/terms.asciidoc` to build an AsciiDoc formatted file (`build/includes/built/terms.adoc`).

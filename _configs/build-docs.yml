@@ -8,26 +8,26 @@
   source: theme
   target: build
 - action: parse
-  data: _data/meta.yml
+  data: data/meta.yml
   builds:
   - output: build/includes/built/company_info.adoc
     template: _templates/liquid/company-info.asciidoc
 # tag::product-info[]
 - action: parse
-  data: _data/products.yml
+  data: data/products.yml
   builds:
     - output: build/includes/built/product-info.adoc
       template: _templates/liquid/product-info.asciidoc
 # end::product-info[]
 # Generate glossary of terms source
 - action: parse
-  data: _data/terms.yml
+  data: data/terms.yml
   builds:
     - output: build/includes/built/terms.adoc
       template: _templates/liquid/terms.asciidoc
 # Generate framework structure list/table
 - action: parse
-  data: _data/framework-structure.yml
+  data: data/framework-structure.yml
   builds:
     - output: build/includes/built/framework-structure-table.adoc
       template: _templates/liquid/terms-to-table.asciidoc
@@ -49,7 +49,7 @@
   source: build/theme
   target: build/site # => build/site/theme
 - action: migrate
-  source: _data
+  source: data
   target: build
 - action: migrate
   source: content/index.html
@@ -60,9 +60,9 @@
 - action: render
   data:
       - _configs/asciidoctor.yml
-      - _data/meta.yml
-      - _data/portals.yml:common
-      - _data/portals.yml:portal-1
+      - data/meta.yml
+      - data/portals.yml:common
+      - data/portals.yml:portal-1
   source: build/portal-index.adoc
   builds:
     - output: build/docs/basic-guide.pdf
@@ -91,9 +91,9 @@
 - action: render
   data:
       - _configs/asciidoctor.yml
-      - _data/meta.yml
-      - _data/portals.yml:common
-      - _data/portals.yml:portal-2
+      - data/meta.yml
+      - data/portals.yml:common
+      - data/portals.yml:portal-2
   source: build/portal-index.adoc
   builds:
     - output: build/docs/fabulous-guide.pdf
@@ -121,9 +121,9 @@
 - action: render
   data:
       - _configs/asciidoctor.yml
-      - _data/meta.yml
-      - _data/portals.yml:common
-      - _data/portals.yml:portal-3
+      - data/meta.yml
+      - data/portals.yml:common
+      - data/portals.yml:portal-3
   source: build/portal-index.adoc
   builds:
     - output: build/docs/dev-guide.pdf
