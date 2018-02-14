@@ -4,15 +4,13 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url:
-    - title: News
-      url: /news
+      external_url: http://DocOps.github.io/acmedoc-poc
 
 #Topnav dropdowns
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: ACMEdoc Help
+    - title: External Help
       folderitems:
         - title: Jekyll Documentation Theme
           external_url: https://github.com/tomjoht/documentation-theme-jekyll
@@ -20,11 +18,17 @@ topnav_dropdowns:
           external_url: https://github.com/briandominick/liquidoc-gem
         - title: LiquiDoc CMF
           external_url: https://github.com/DocOps/liquidoc-cmf
-    - title: Products
+        - title: Asciidoctor User Manual
+          external_url: http://asciidoctor.org/docs/user-manual/
+        - title: Jekyll Docs
+          external_url: https://jekyllrb.com/docs/home/
+        - title: Shopify Liquid Docs
+          external_url: https://shopify.github.io/liquid/
+    - title: ACMEdoc Portals
       folderitems:
-        - title: Jekyll Documentation Theme
-          url: /mydoc_introduction.html
-        - title: Product 1
-          url: /p1_landing_page.html
-        - title: Product 2
-          url: /p2_landing_page.html
+        - title: Basic Portal
+          external_url: ../basic/home
+        - title: Fabulous Portal
+          external_url: ../fab/home
+        - title: Developer Portal
+          external_url: ../dev/home
