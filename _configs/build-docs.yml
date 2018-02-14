@@ -1,9 +1,9 @@
 # Move critical files to the temporary build directory
 - action: migrate
-  source: src
+  source: content
   target: build
   options:
-    inclusive: false # Duplicate the files without the src/ dir
+    inclusive: false # Duplicate the files without the content/ dir
 - action: migrate
   source: theme
   target: build
@@ -52,7 +52,7 @@
   source: _data
   target: build
 - action: migrate
-  source: src/index.html
+  source: content/index.html
   target: build/site # => build/site/theme
 # Begin Asciidoctor-driven render operations
 # tag::render-block[]

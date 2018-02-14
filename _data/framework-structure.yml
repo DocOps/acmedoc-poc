@@ -10,19 +10,19 @@
 - name: build/
   description: A directory created and written to during the build process.
 
-- name: src/
+- name: content/
   description: This is where _most_ of our content will come from.
 
-- name: src/\*index*.adoc
+- name: content/\*index*.adoc
   description: The defining file for book builds and the homepage and something of a map for site builds. This file sould have `index` in its filename but should also be descriptive of what it produces.
 
-- name: src/includes/
+- name: content/includes/
   description: Snippets and partials go in here. This is where we put highly reusable and often partly dynamic text content. Snippets should not have headers. They may be collected into files by type or subject, distinguished by AsciiDoc include tags in their comments.
 
-- name: src/topics/
+- name: content/topics/
   description: Topics are chunks of content that could stand alone, for instance as a web page, but that also might be reused in different contexts, including as a component of a larger page or other document, such as a book. All topic files should have a level-one header (`=`).
 
-- name: src/[content]/
+- name: content/[content]/
   description: A freely named directory for your main content, however organized. Often called `pages/` to comport with Jekyll conventions.
 
 - name: theme/

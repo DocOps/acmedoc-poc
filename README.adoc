@@ -327,8 +327,8 @@ acmedoc-poc/
 │       ├── product-info.asciidoc
 │       └── terms.asciidoc
 ├── build/*
-│   └── [src/]
-├── src/
+│   └── [content/]
+├── content/
 │   ├── includes/
 │   ├── portal/
 │   ├── topics/
