@@ -75,6 +75,8 @@ topnav_title: ACMEdoc
 # this appears on the top navigation bar next to the home button
 site_title: ACMEdoc Docs-as-Code Platform
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
+feedback_disable: true
+
 
 defaults:
   -

@@ -49,6 +49,9 @@
   source: build/theme
   target: build/site # => build/site/theme
 - action: migrate
+  source: _data
+  target: build
+- action: migrate
   source: src/index.html
   target: build/site # => build/site/theme
 # Begin Asciidoctor-driven render operations
@@ -69,6 +72,7 @@
         pdf:
         includes_path: ../includes
         root_path: ../..
+        configs_path: ../../../_configs
     - backend: jekyll
       properties:
         files:
@@ -81,6 +85,7 @@
         portal_term: Guide
         includes_path: includes
         root_path: ..
+        configs_path: ../../../_configs
 # end::render-block[]
 # Build the 'Fabulous' guide
 - action: render
@@ -98,6 +103,7 @@
         pdf:
         includes_path: ../includes
         root_path: ../..
+        configs_path: ../../../_configs
     - backend: jekyll
       properties:
         files:
@@ -110,6 +116,7 @@
         portal_term: Guide
         includes_path: includes
         root_path: ..
+        configs_path: ../../../_configs
 # Build the 'Developer' guide
 - action: render
   data:
@@ -126,6 +133,7 @@
         pdf:
         includes_path: ../includes
         root_path: ../..
+        configs_path: ../../../_configs
     - backend: jekyll
       properties:
         files:
@@ -138,6 +146,7 @@
         portal_term: Guide
         includes_path: includes
         root_path: ..
+        configs_path: ../../../_configs
 # Make a copy of the theme/ dir inside site/
 - action: migrate
   source: build/theme

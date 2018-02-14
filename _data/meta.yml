@@ -11,3 +11,8 @@ address_city: Placeville
 address_state: New York
 address_zipcode: 12121
 git_repo_web_url: # The URL of your GitHub or other interface
+
+portals:
+  - basic
+  - fab
+  - dev

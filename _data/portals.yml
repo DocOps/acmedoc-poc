@@ -10,7 +10,7 @@ portal-1:
   user_role: user
   user_verb: develop and manage great docs with
   site_path: basic
-  show_basic:
+  show_basic: true
 portal-2:
   portal_id: 2
   portal_fab:
@@ -21,7 +21,7 @@ portal-2:
   user_role: user
   user_verb: develop great docs
   site_path: fab
-  show_basic:
+  show_fab: true
 portal-3:
   portal_id: 3
   portal_dev:
@@ -32,5 +32,5 @@ portal-3:
   user_role: developer
   user_verb: extend and customize
   site_path: dev
-  show_basic:
-  show_premium:
+  show_basic: true
+  show_fab: true

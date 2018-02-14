@@ -7,3 +7,4 @@ exclude:
   - snippets/
   - site/
   - index.html
+portal_slug: basic

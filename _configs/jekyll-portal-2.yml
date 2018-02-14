@@ -8,3 +8,4 @@ exclude:
   - site/
   - index.html
 keep_files: [basic,assets]
+portal_slug: fab
