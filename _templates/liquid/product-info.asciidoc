@@ -4,14 +4,6 @@
 
 Here is some information about {{ p.name }}, drawn from the file `_data/products.yml` and displayed conditionally, depending on which products are assigned to your portal.
 
-The iterative parsing is carried out by LiquiDoc during preprocessing.
-
-.From `_configs/build-docs.yml`
-[source,yaml]
-----
-include::{root_path}/../_configs/build-docs.yml[tags="product-info"]
-----
-
 === Upstream Dependency Support
 
 {{ p.name }} supports the following upstream dependencies.

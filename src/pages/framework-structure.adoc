@@ -12,4 +12,4 @@ endif::[]
 
 [TIP]
 In the PDF edition of this document, the above appears as a table; in the website edition, it is a definition list.
-Both are drawn from the same source (`_data/framework-structure.adoc`), which is parsed using the generic templates `terms-to-table.asciidoc` and `terms-to-dlist.asciidoc`, each generating a file in the ephemeral directory `build/includes/built/` (those being `framework-strcture-table.adoc` and `framework-structure-dlist.adoc`).
+Both are drawn from the same source (`_data/framework-structure.yml`), which is parsed using the generic templates `terms-to-table.asciidoc` and `terms-to-dlist.asciidoc`, each generating a file in the ephemeral directory `build/includes/built/` (those being `framework-strcture-table.adoc` and `framework-structure-dlist.adoc`).
